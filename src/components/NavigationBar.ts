@@ -8,7 +8,7 @@ export class NavigationBar {
   readonly navAboutUs: Locator;
   readonly navOurImpact: Locator;
   readonly navInTheNews: Locator;
-  readonly navCareer: Locator;
+  readonly navCareers: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -22,7 +22,7 @@ export class NavigationBar {
       .getByRole('link', { name: 'About Us' });
     this.navOurImpact = page.getByRole('link', { name: 'Our Impact' });
     this.navInTheNews = page.getByRole('link', { name: 'In the News' });
-    this.navCareer = page
+    this.navCareers = page
       .getByLabel('Main Navigation')
       .getByRole('link', { name: 'Careers' });
   }
@@ -71,14 +71,19 @@ export class NavigationBar {
     await expect(this.navInTheNews).not.toBeVisible();
   }
   async gotoInTheNews() {
+    await this.navWhoWeAre.hover();
     await this.navInTheNews.click();
   }
 
-  async navCareerIsVisible() {
+  async navCareersIsVisible() {
     await this.navWhoWeAre.hover();
-    await expect(this.navCareer).toBeVisible();
+    await expect(this.navCareers).toBeVisible();
   }
-  async navCareerIsNotVisible() {
-    await expect(this.navCareer).not.toBeVisible();
+  async navCareersIsNotVisible() {
+    await expect(this.navCareers).not.toBeVisible();
+  }
+  async gotoCareers() {
+    await this.navWhoWeAre.hover();
+    await this.navCareers.click();
   }
 }

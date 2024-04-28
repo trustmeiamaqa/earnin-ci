@@ -1,7 +1,9 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 import { CreditMonitoringDesktop } from '../../src/pages/CreditMonitoringDesktop.page';
 import { AboutUsDesktop } from '../../src/pages/AboutUsDesktop.page';
 import { OurImpactDesktop } from '../../src/pages/OurImpactDesktop.page';
+import { InTheNewsDesktop } from '../../src/pages/InTheNewsDesktop.page';
+import { CareersDesktop } from '../../src/pages/CareersDesktop.page';
 import { NavigationBar } from '../../src/components/NavigationBar';
 import { PDPA } from '../../src/components/PDPA';
 
@@ -50,52 +52,26 @@ test.describe('Ensure navigation menus works correctly', async () => {
     // ensure the page displays correctly
     await ourImpactPage.pageDisplays();
   });
+
+  test('Navigate to "In the News" page', async ({ page }) => {
+    const navBar = new NavigationBar(page);
+    const inTheNewsPage = new InTheNewsDesktop(page);
+    // is menu visible
+    await navBar.navInTheNewsIsVisible();
+    // navigate to About us menu
+    await navBar.gotoInTheNews();
+    // ensure the page displays correctly
+    await inTheNewsPage.pageDisplays();
+  });
+
+  test('Navigate to "Careers" page', async ({ page }) => {
+    const navBar = new NavigationBar(page);
+    const careersPage = new CareersDesktop(page);
+    // is menu visible
+    await navBar.navCareersIsVisible();
+    // navigate to About us menu
+    await navBar.gotoCareers();
+    // ensure the page displays correctly
+    await careersPage.pageDisplays();
+  });
 });
-// const homePage = new HomePage(page);
-// const searchResultPage = new SearchResultPage(page);
-// // get options value
-// const dpOption = options['July'].toString();
-// const rtOption = options['December (two years from now)'].toString();
-// // fil in the search form
-// await homePage.fillInSearchForm(dpOption, rtOption);
-// await homePage.clickSearchButton();
-// // expect displays seats available info
-// await searchResultPage.searchResultDisplays();
-// await searchResultPage.seatsAvailableInfoDisplays();
-// });
-
-// test('Users can see no more seats available when seats are unavailable.', async ({
-//   page,
-// }) => {
-//   const homePage = new HomePage(page);
-//   const searchResultPage = new SearchResultPage(page);
-
-//   // get options value
-//   const dpOption = options['December'].toString();
-//   const rtOption = options['July (two years from now)'].toString();
-
-//   // fil in the search form
-//   await homePage.fillInSearchForm(dpOption, rtOption);
-//   await homePage.clickSearchButton();
-
-//   // expect displays seats unavailable info
-//   await searchResultPage.searchResultDisplays();
-//   await searchResultPage.seatsUnavailableInfoDisplays();
-// });
-
-// test('Users can this schedule is not possible message', async ({ page }) => {
-//   const homePage = new HomePage(page);
-//   const searchResultPage = new SearchResultPage(page);
-
-//   // get options value
-//   const dpOption = options['July (next year)'].toString();
-//   const rtOption = options['December (next year)'].toString();
-
-//   // fil in the search form
-//   await homePage.fillInSearchForm(dpOption, rtOption);
-//   await homePage.clickSearchButton();
-
-//   // expect displays seats unavailable info
-//   await searchResultPage.searchResultDisplays();
-//   await searchResultPage.invalidScheduleInfoDisplay();
-// });
