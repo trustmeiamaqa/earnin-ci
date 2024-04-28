@@ -2,15 +2,16 @@
   "name": "earnin-ci",
   "version": "1.0.0",
   "description": "earnin-ci",
+  "author": "rendezvous14",
+  "keywords": [],
+  "license": "ISC",
   "scripts": {
     "lint": "eslint --ext \"tests/**/*.{js,jsx,ts,tsx}\" \"src/**/*.{js,jsx,ts,tsx}\" ",
     "lint-fix": "eslint . --ext .ts --fix",
     "test:e2e": "npx playwright test tests/example.spec.ts",
     "test:report": "npx playwright show-report"
   },
-  "keywords": [],
-  "author": "rendezvous14",
-  "license": "ISC",
+  "dependencies": {},
   "devDependencies": {
     "@eslint/js": "^9.1.1",
     "@playwright/test": "^1.43.1",
@@ -20,6 +21,5 @@
     "dotenv": "^16.4.5",
     "eslint": "^8.57.0",
     "typescript": "^5.4.5"
-  },
-  "dependencies": {}
+  }
 }
