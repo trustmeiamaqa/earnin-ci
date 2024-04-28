@@ -27,24 +27,4 @@ export default defineConfig({
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
-
-  /* Configure projects for major browsers */
-  projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
-    {
-      name: 'mobile',
-      use: { ...devices['iPhone 13'] },
-    },
-  ],
-  // {
-  //   name: 'firefox',
-  //   use: { ...devices['Desktop Firefox'] },
-  // },
-  // {
-  //   name: 'webkit',
-  //   use: { ...devices['Desktop Safari'] },
-  // },
 });

@@ -1,14 +1,22 @@
-import { test } from '@playwright/test';
-import { CreditMonitoringDesktop } from '../../src/pages/CreditMonitoringDesktop.page';
-import { AboutUsDesktop } from '../../src/pages/AboutUsDesktop.page';
-import { OurImpactDesktop } from '../../src/pages/OurImpactDesktop.page';
-import { InTheNewsDesktop } from '../../src/pages/InTheNewsDesktop.page';
-import { CareersDesktop } from '../../src/pages/CareersDesktop.page';
-import { NavigationBar } from '../../src/components/NavigationBar';
-import { PDPA } from '../../src/components/PDPA';
+import { test, Page, devices } from '@playwright/test';
+import { CreditMonitoringDesktop } from '../../../src/pages/CreditMonitoring.page';
+import { AboutUsDesktop } from '../../../src/pages/AboutUs.page';
+import { OurImpactDesktop } from '../../../src/pages/OurImpact.page';
+import { InTheNewsDesktop } from '../../../src/pages/InTheNews.page';
+import { CareersDesktop } from '../../../src/pages/Careers.page';
+import { PDPA } from '../../../src/components/PDPA';
+// mobile nav bar
+import { NavigationBar } from '../../../src/components/NavigationBarMobile';
 
 test.describe('Ensure navigation menus works correctly', async () => {
-  test.beforeEach(async ({ page }) => {
+  let page: Page;
+
+  test.beforeEach(async ({ browser }) => {
+    const context = await browser.newContext({
+      ...devices['iPhone 12'],
+    });
+    page = await context.newPage();
+
     // start from credit monitoring page
     const creditPage = new CreditMonitoringDesktop(page);
     const acceptPDPABtn = new PDPA(page);
@@ -20,7 +28,7 @@ test.describe('Ensure navigation menus works correctly', async () => {
     await creditPage.pageDisplays();
   });
 
-  test('Navigate to "Who we are" page', async ({ page }) => {
+  test('Navigate to "Who we are" page', async () => {
     const navBar = new NavigationBar(page);
     const aboutUsPage = new AboutUsDesktop(page);
     // is menu visible
@@ -31,7 +39,7 @@ test.describe('Ensure navigation menus works correctly', async () => {
     await aboutUsPage.pageDisplays();
   });
 
-  test('Navigate to "About Us" page', async ({ page }) => {
+  test('Navigate to "About Us" page', async () => {
     const navBar = new NavigationBar(page);
     const aboutUsPage = new AboutUsDesktop(page);
     // is menu visible
@@ -42,7 +50,7 @@ test.describe('Ensure navigation menus works correctly', async () => {
     await aboutUsPage.pageDisplays();
   });
 
-  test('Navigate to "Our Impact" page', async ({ page }) => {
+  test('Navigate to "Our Impact" page', async () => {
     const navBar = new NavigationBar(page);
     const ourImpactPage = new OurImpactDesktop(page);
     // is menu visible
@@ -53,7 +61,7 @@ test.describe('Ensure navigation menus works correctly', async () => {
     await ourImpactPage.pageDisplays();
   });
 
-  test('Navigate to "In the News" page', async ({ page }) => {
+  test('Navigate to "In the News" page', async () => {
     const navBar = new NavigationBar(page);
     const inTheNewsPage = new InTheNewsDesktop(page);
     // is menu visible
@@ -64,7 +72,7 @@ test.describe('Ensure navigation menus works correctly', async () => {
     await inTheNewsPage.pageDisplays();
   });
 
-  test('Navigate to "Careers" page', async ({ page }) => {
+  test('Navigate to "Careers" page', async () => {
     const navBar = new NavigationBar(page);
     const careersPage = new CareersDesktop(page);
     // is menu visible
