@@ -1,10 +1,10 @@
-import { defineConfig, devices } from '@playwright/test'
-import dotenv from 'dotenv'
-dotenv.config()
+import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
+dotenv.config();
 
 process.env.node_url = process.env.NODE_URL
   ? `${process.env.NODE_URL}`
-  : process.env.base_url
+  : process.env.base_url;
 
 export default defineConfig({
   testDir: './tests',
@@ -25,6 +25,7 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   use: {
     trace: 'on-first-retry',
+    screenshot: 'only-on-failure',
   },
 
   /* Configure projects for major browsers */
@@ -42,4 +43,4 @@ export default defineConfig({
   //   name: 'webkit',
   //   use: { ...devices['Desktop Safari'] },
   // },
-})
+});

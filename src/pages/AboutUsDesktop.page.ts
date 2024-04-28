@@ -1,0 +1,34 @@
+import { expect, type Locator, type Page } from '@playwright/test';
+
+export class AboutUsDesktop {
+  readonly page: Page;
+  readonly pageFirstHeading: Locator;
+  readonly pageSecondHeading: Locator;
+  readonly pageThirdHeading: Locator;
+  readonly aboutUsURL: string = `${process.env.base_url ?? ''}${
+    process.env.about_us_url ?? ''
+  }`;
+
+  constructor(page: Page) {
+    this.page = page;
+    this.pageFirstHeading = page.getByRole('heading', { name: 'Our story' });
+    this.pageSecondHeading = page.getByRole('heading', {
+      name: 'At EarnIn, we’re reimagining',
+    });
+    this.pageThirdHeading = page.getByRole('heading', {
+      name: "See what we're all about",
+    });
+  }
+
+  async gotoAboutUsPage() {
+    await this.page.goto(this.aboutUsURL);
+    await this.page.waitForLoadState('domcontentloaded');
+  }
+
+  async pageDisplays() {
+    await expect(this.pageFirstHeading).toBeVisible();
+    await expect(this.pageSecondHeading).toBeVisible();
+    await expect(this.pageThirdHeading).toBeVisible();
+    await expect(this.page).toHaveURL(this.aboutUsURL);
+  }
+}
