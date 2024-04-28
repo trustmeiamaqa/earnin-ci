@@ -8,8 +8,10 @@
   "scripts": {
     "lint": "eslint --ext \"tests/**/*.{js,jsx,ts,tsx}\" \"src/**/*.{js,jsx,ts,tsx}\" ",
     "lint-fix": "eslint . --ext .ts --fix",
-    "test:e2e": "npx playwright test tests/example.spec.ts",
-    "test:report": "npx playwright show-report"
+    "e2e:desktop": "npx playwright test --grep @desktop tests/products",
+    "e2e:mobile": "npx playwright test --grep @mobile tests/products",
+    "e2e:full": "npx playwright test tests/products",
+    "e2e:report": "npx playwright show-report"
   },
   "dependencies": {},
   "devDependencies": {

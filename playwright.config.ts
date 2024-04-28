@@ -19,7 +19,10 @@ export default defineConfig({
   },
   reporter: process.env.CI
     ? 'dot'
-    : [['list'], ['html', { outputDir: './playwright-report' }]],
+    : [
+        ['list', { printSteps: false }],
+        ['html', { outputDir: './playwright-report' }],
+      ],
   timeout: 60000,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
