@@ -10,7 +10,7 @@ import { NavigationBar } from '../../../src/components/NavigationBarMobile';
 test.describe(
   'Ensure navigation menus work on Mobile correctly',
   {
-    tag: '@mobile',
+    tag: ['@navigations', '@mobile'],
   },
   async () => {
     let page: Page;

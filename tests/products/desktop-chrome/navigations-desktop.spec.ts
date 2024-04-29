@@ -10,7 +10,7 @@ import { NavigationBar } from '../../../src/components/NavigationBarDesktop';
 test.describe(
   'Ensure navigation menus work on Desktop correctly',
   {
-    tag: '@desktop',
+    tag: ['@navigations', '@desktop'],
   },
   async () => {
     let page: Page;
