@@ -10,7 +10,9 @@
     "lint-fix": "eslint . --ext .ts --fix",
     "e2e:desktop": "npx playwright test --grep @desktop tests/products",
     "e2e:mobile": "npx playwright test --grep @mobile tests/products",
+    "e2e:screenshots": "npx playwright test --grep @screenshot tests/products",
     "e2e:full": "npx playwright test tests/products",
+    "e2e:update-screenshot": "npx playwright test --grep @screenshot tests/products --update-snapshots",
     "e2e:report": "npx playwright show-report"
   },
   "dependencies": {},

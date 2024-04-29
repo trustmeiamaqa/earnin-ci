@@ -1,7 +1,7 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 import { paths } from '../constants/paths';
 
-export class OurImpactDesktop {
+export class OurImpact {
   readonly page: Page;
   readonly pageFirstHeading: Locator;
   readonly pageSecondHeading: Locator;
@@ -17,12 +17,12 @@ export class OurImpactDesktop {
     this.pageSecondHeading = page.getByText('As one of the first pioneers');
   }
 
-  async gotoOurImpactPage() {
+  async gotoPage() {
     await this.page.goto(this.ourImpactURL);
     await this.page.waitForLoadState('domcontentloaded');
   }
 
-  async pageDisplays() {
+  async pageDisplaysSuccessfully() {
     await expect(this.pageFirstHeading).toBeVisible();
     await expect(this.pageSecondHeading).toBeVisible();
     await expect(this.page).toHaveURL(this.ourImpactURL);

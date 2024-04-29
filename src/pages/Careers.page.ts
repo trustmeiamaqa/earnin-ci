@@ -1,7 +1,7 @@
 import { expect, type Locator, type Page } from '@playwright/test';
 import { paths } from '../constants/paths';
 
-export class CareersDesktop {
+export class Careers {
   readonly page: Page;
   readonly pageFirstHeading: Locator;
   readonly pageSecondHeading: Locator;
@@ -15,12 +15,12 @@ export class CareersDesktop {
     this.pageSecondHeading = page.getByText('Join our journey to reimagine');
   }
 
-  async gotoCareerPage() {
+  async gotoPage() {
     await this.page.goto(this.careerURL);
     await this.page.waitForLoadState('domcontentloaded');
   }
 
-  async pageDisplays() {
+  async pageDisplaysSuccessfully() {
     await expect(this.pageFirstHeading).toBeVisible();
     await expect(this.pageSecondHeading).toBeVisible();
     await expect(this.page).toHaveURL(this.careerURL);
