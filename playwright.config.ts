@@ -1,10 +1,10 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig } from '@playwright/test';
 import dotenv from 'dotenv';
 dotenv.config();
 
 process.env.node_url = process.env.NODE_URL
   ? `${process.env.NODE_URL}`
-  : process.env.base_url;
+  : process.env.BASE_URL;
 
 export default defineConfig({
   testDir: './tests',
@@ -17,12 +17,16 @@ export default defineConfig({
   expect: {
     timeout: 10000,
   },
-  reporter: process.env.CI
-    ? 'dot'
-    : [
-        ['list', { printSteps: false }],
-        ['html', { outputDir: './playwright-report' }],
-      ],
+  // reporter: process.env.CI
+  //   ? 'dot'
+  //   : [
+  //       ['list', { printSteps: true }],
+  //       ['html', { outputDir: './playwright-report' }],
+  //     ],
+  reporter: [
+    ['list', { printSteps: true }],
+    ['html', { outputDir: './playwright-report' }],
+  ],
   timeout: 60000,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,

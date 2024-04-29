@@ -5,7 +5,7 @@ export class CreditMonitoringDesktop {
   readonly page: Page;
   readonly pageFirstHeading: Locator;
   readonly pageSecondHeading: Locator;
-  readonly creditMonitoringURL: string = `${process.env.base_url ?? ''}${
+  readonly creditMonitoringURL: string = `${process.env.BASE_URL ?? ''}${
     paths.credit_monitoring_url ?? ''
   }`;
 

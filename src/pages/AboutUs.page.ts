@@ -6,7 +6,7 @@ export class AboutUsDesktop {
   readonly pageFirstHeading: Locator;
   readonly pageSecondHeading: Locator;
   readonly pageThirdHeading: Locator;
-  readonly aboutUsURL: string = `${process.env.base_url ?? ''}${
+  readonly aboutUsURL: string = `${process.env.BASE_URL ?? ''}${
     paths.about_us_url ?? ''
   }`;
 

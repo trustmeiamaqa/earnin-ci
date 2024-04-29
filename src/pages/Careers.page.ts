@@ -5,7 +5,7 @@ export class CareersDesktop {
   readonly page: Page;
   readonly pageFirstHeading: Locator;
   readonly pageSecondHeading: Locator;
-  readonly careerURL: string = `${process.env.base_url ?? ''}${
+  readonly careerURL: string = `${process.env.BASE_URL ?? ''}${
     paths.careers_url ?? ''
   }`;
 

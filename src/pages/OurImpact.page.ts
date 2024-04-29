@@ -5,7 +5,7 @@ export class OurImpactDesktop {
   readonly page: Page;
   readonly pageFirstHeading: Locator;
   readonly pageSecondHeading: Locator;
-  readonly ourImpactURL: string = `${process.env.base_url ?? ''}${
+  readonly ourImpactURL: string = `${process.env.BASE_URL ?? ''}${
     paths.our_impact_url ?? ''
   }`;
 

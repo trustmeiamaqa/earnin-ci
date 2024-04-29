@@ -5,7 +5,7 @@ export class InTheNewsDesktop {
   readonly page: Page;
   readonly pageFirstHeading: Locator;
   readonly pageSecondHeading: Locator;
-  readonly inTheNewsURL: string = `${process.env.base_url ?? ''}${
+  readonly inTheNewsURL: string = `${process.env.BASE_URL ?? ''}${
     paths.in_the_new_url ?? ''
   }`;
 
