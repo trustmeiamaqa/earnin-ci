@@ -8,7 +8,7 @@ import { PDPA } from '../../../src/components/PDPA';
 
 test.describe(
   'Verify that the marketing page snapshot remains unchanged on Desktop',
-  { tag: '@snapshot' },
+  { tag: ['@snapshot', '@desktop'] },
   async () => {
     let page: Page;
 

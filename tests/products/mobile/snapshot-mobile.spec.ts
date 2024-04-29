@@ -8,7 +8,7 @@ import { PDPA } from '../../../src/components/PDPA';
 
 test.describe(
   'Verify that the marketing page snapshot remains unchanged on Mobile',
-  { tag: '@snapshot' },
+  { tag: ['@snapshot', '@mobile'] },
   async () => {
     let page: Page;
 
