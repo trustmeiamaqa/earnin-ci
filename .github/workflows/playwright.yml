@@ -39,13 +39,11 @@ jobs:
         with:
           aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
-          aws_bucket: ${{ secrets.AWS_S3_BUCKET}}
+          aws_bucket: earnin-testreport
           source_dir: playwright-report/
 
       - name: Link To Report
-        run: echo "https://s3.amazonaws.com/${{ secrets.AWS_S3_BUCKET }}/${{ steps.S3.outputs.object_key }}/index.html"
-        env:
-          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+        run: echo "https://s3.amazonaws.com/earnin-testreport/${{ steps.S3.outputs.object_key }}/index.html"
 
       # - name: Upload S3 ACL
       #   uses: shallwefootball/s3-upload-action@master
