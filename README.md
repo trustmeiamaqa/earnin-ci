@@ -146,9 +146,13 @@ Provide the shortcut commands for run test scripts, linter, prettier
     "e2e:report": "npx playwright show-report"
   },
 ```
+### Project management 
+This project was managed by breaking all tasks down using a Trello board.
+![board](docs/img/kanban-board.png)
 
 ### Known issues
 1. The screenshot comparison test case remains flaky and unreliable on certain pages, especially those with lengthy content and image animations, such as the 'In the News' navigation page and the 'Careers' page.
 2. There are issues preventing the execution of the screenshot comparison test case on GitHub Actions CI. These include:
 2.1. The quality of the actual screenshots on Linux is lower than expected when compared to the screenshot files on macOS. A proposed solution is to utilize Docker containers to ensure consistent environments.
 2.2. The extension naming convention differs between macOS and GitHub Actions CI (Ubuntu), with '-darwin.png' used on macOS and '-linux.png' used on GitHub Actions CI.
+
