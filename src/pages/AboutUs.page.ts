@@ -1,4 +1,5 @@
 import { expect, type Locator, type Page } from '@playwright/test';
+import { paths } from '../constants/paths';
 
 export class AboutUsDesktop {
   readonly page: Page;
@@ -6,7 +7,7 @@ export class AboutUsDesktop {
   readonly pageSecondHeading: Locator;
   readonly pageThirdHeading: Locator;
   readonly aboutUsURL: string = `${process.env.base_url ?? ''}${
-    process.env.about_us_url ?? ''
+    paths.about_us_url ?? ''
   }`;
 
   constructor(page: Page) {

@@ -1,11 +1,12 @@
 import { expect, type Locator, type Page } from '@playwright/test';
+import { paths } from '../constants/paths';
 
 export class CreditMonitoringDesktop {
   readonly page: Page;
   readonly pageFirstHeading: Locator;
   readonly pageSecondHeading: Locator;
   readonly creditMonitoringURL: string = `${process.env.base_url ?? ''}${
-    process.env.credit_monitoring_url ?? ''
+    paths.credit_monitoring_url ?? ''
   }`;
 
   constructor(page: Page) {

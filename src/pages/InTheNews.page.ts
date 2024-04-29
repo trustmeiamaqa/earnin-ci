@@ -1,11 +1,12 @@
 import { expect, type Locator, type Page } from '@playwright/test';
+import { paths } from '../constants/paths';
 
 export class InTheNewsDesktop {
   readonly page: Page;
   readonly pageFirstHeading: Locator;
   readonly pageSecondHeading: Locator;
   readonly inTheNewsURL: string = `${process.env.base_url ?? ''}${
-    process.env.in_the_new_url ?? ''
+    paths.in_the_new_url ?? ''
   }`;
 
   constructor(page: Page) {
