@@ -9,7 +9,7 @@ import { analytics } from '../../../src/constants/analytics';
 test.describe(
   'Verify the event segment /t analytics remain unchanged',
   {
-    tag: ['@analytics', '@desktop'],
+    tag: ['@analytics', '@desktop', '@ci'],
   },
   async () => {
     let page: Page;
