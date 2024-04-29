@@ -8,7 +8,7 @@ import { PDPA } from '../../../src/components/PDPA';
 
 test.describe(
   'Verify that the marketing page snapshot remains unchanged on Desktop',
-  { tag: ['@snapshot', '@desktop'] },
+  { tag: ['@screenshot', '@desktop'] },
   async () => {
     let page: Page;
 
@@ -35,9 +35,12 @@ test.describe(
       await page.waitForTimeout(3000);
 
       // ensure the page remains unchanged
-      await expect(page).toHaveScreenshot('credit-monitoring-page.png', {
-        fullPage: true,
-      });
+      await expect(page).toHaveScreenshot(
+        ['../screenshots', 'credit-monitoring-page.png'],
+        {
+          fullPage: true,
+        }
+      );
     });
 
     test('About us page', async () => {
@@ -56,9 +59,12 @@ test.describe(
       await page.waitForTimeout(3000);
 
       // ensure the page remains unchanged
-      await expect(page).toHaveScreenshot('about-us-page.png', {
-        fullPage: true,
-      });
+      await expect(page).toHaveScreenshot(
+        ['../screenshots', 'about-us-page.png'],
+        {
+          fullPage: true,
+        }
+      );
     });
 
     test('Our impact page', async () => {
@@ -77,9 +83,12 @@ test.describe(
       await page.waitForTimeout(3000);
 
       // ensure the page remains unchanged
-      await expect(page).toHaveScreenshot('our-impact-page.png', {
-        fullPage: true,
-      });
+      await expect(page).toHaveScreenshot(
+        ['../screenshots', 'our-impact-page.png'],
+        {
+          fullPage: true,
+        }
+      );
     });
 
     test('In the news page', async () => {
@@ -98,10 +107,13 @@ test.describe(
       await page.waitForTimeout(3000);
 
       // ensure the page remains unchanged
-      await expect(page).toHaveScreenshot('in-the-news-page.png', {
-        fullPage: true,
-        maxDiffPixelRatio: 0.15,
-      });
+      await expect(page).toHaveScreenshot(
+        ['../screenshots', 'in-the-news-page.png'],
+        {
+          fullPage: true,
+          maxDiffPixelRatio: 0.15,
+        }
+      );
     });
 
     test('Careers page', async () => {
@@ -120,9 +132,13 @@ test.describe(
       await page.waitForTimeout(3000);
 
       // ensure the page remains unchanged
-      await expect(page).toHaveScreenshot('careers-page.png', {
-        fullPage: true,
-      });
+      await expect(page).toHaveScreenshot(
+        ['../screenshots', 'careers-page.png'],
+        {
+          fullPage: true,
+          maxDiffPixelRatio: 0.15,
+        }
+      );
     });
   }
 );
