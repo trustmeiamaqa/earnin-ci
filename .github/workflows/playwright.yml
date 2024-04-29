@@ -8,8 +8,9 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    environment: testing
     env:
-      base_url: ${{ vars.BASE_URL }}
+      base_url: ${{ secrets.BASE_URL }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
