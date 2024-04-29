@@ -21,12 +21,12 @@ export class CreditMonitoring {
     });
   }
 
-  async gotoCreditMonitoringPage() {
+  async gotoPage() {
     await this.page.goto(this.creditMonitoringURL);
     await this.page.waitForLoadState('domcontentloaded');
   }
 
-  async pageDisplays() {
+  async pageDisplaysSuccessfully() {
     await expect(this.pageFirstHeading).toBeVisible();
     await expect(this.pageSecondHeading).toBeVisible();
     await expect(this.page).toHaveURL(this.creditMonitoringURL);

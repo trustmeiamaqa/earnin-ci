@@ -15,12 +15,12 @@ export class Careers {
     this.pageSecondHeading = page.getByText('Join our journey to reimagine');
   }
 
-  async gotoCareerPage() {
+  async gotoPage() {
     await this.page.goto(this.careerURL);
     await this.page.waitForLoadState('domcontentloaded');
   }
 
-  async pageDisplays() {
+  async pageDisplaysSuccessfully() {
     await expect(this.pageFirstHeading).toBeVisible();
     await expect(this.pageSecondHeading).toBeVisible();
     await expect(this.page).toHaveURL(this.careerURL);

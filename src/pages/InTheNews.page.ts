@@ -19,12 +19,12 @@ export class InTheNews {
     });
   }
 
-  async gotoInTheNewPage() {
+  async gotoPage() {
     await this.page.goto(this.inTheNewsURL);
     await this.page.waitForLoadState('domcontentloaded');
   }
 
-  async pageDisplays() {
+  async pageDisplaysSuccessfully() {
     await expect(this.pageFirstHeading).toBeVisible();
     await expect(this.pageSecondHeading).toBeVisible();
     await expect(this.page).toHaveURL(this.inTheNewsURL);

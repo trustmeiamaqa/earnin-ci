@@ -8,27 +8,21 @@ process.env.node_url = process.env.NODE_URL
 
 export default defineConfig({
   testDir: './tests',
-  /* Run tests in files in parallel */
   fullyParallel: true,
-  /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
-  /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   expect: {
     timeout: 10000,
+    toHaveScreenshot: {
+      animations: 'disabled',
+      maxDiffPixelRatio: 0.1,
+    },
   },
-  // reporter: process.env.CI
-  //   ? 'dot'
-  //   : [
-  //       ['list', { printSteps: true }],
-  //       ['html', { outputDir: './playwright-report' }],
-  //     ],
   reporter: [
     ['list', { printSteps: true }],
     ['html', { outputDir: './playwright-report' }],
   ],
   timeout: 60000,
-  /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   use: {
     trace: 'on-first-retry',

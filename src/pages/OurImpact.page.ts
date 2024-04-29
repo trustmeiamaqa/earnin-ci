@@ -17,12 +17,12 @@ export class OurImpact {
     this.pageSecondHeading = page.getByText('As one of the first pioneers');
   }
 
-  async gotoOurImpactPage() {
+  async gotoPage() {
     await this.page.goto(this.ourImpactURL);
     await this.page.waitForLoadState('domcontentloaded');
   }
 
-  async pageDisplays() {
+  async pageDisplaysSuccessfully() {
     await expect(this.pageFirstHeading).toBeVisible();
     await expect(this.pageSecondHeading).toBeVisible();
     await expect(this.page).toHaveURL(this.ourImpactURL);

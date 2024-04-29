@@ -26,11 +26,11 @@ test.describe(
       const creditPage = new CreditMonitoring(page);
       const acceptPDPABtn = new PDPA(page);
       // goto credit monitoring page
-      await creditPage.gotoCreditMonitoringPage();
+      await creditPage.gotoPage();
       // accept PDPA for first landing
       await acceptPDPABtn.acceptPDPA();
       // ensure the page displays correctly
-      await creditPage.pageDisplays();
+      await creditPage.pageDisplaysSuccessfully();
     });
 
     test('Navigate to "Who we are" page', async () => {
@@ -41,7 +41,7 @@ test.describe(
       // navigate to "Who We Are" menu
       await navBar.gotoNavWhoWeAre();
       // ensure the page displays correctly
-      await aboutUsPage.pageDisplays();
+      await aboutUsPage.pageDisplaysSuccessfully();
     });
 
     test('Navigate to "About Us" page', async () => {
@@ -52,7 +52,7 @@ test.describe(
       // navigate to About us menu
       await navBar.gotoNavAboutUs();
       // ensure the page displays correctly
-      await aboutUsPage.pageDisplays();
+      await aboutUsPage.pageDisplaysSuccessfully();
     });
 
     test('Navigate to "Our Impact" page', async () => {
@@ -63,7 +63,7 @@ test.describe(
       // navigate to About us menu
       await navBar.gotoNavOurImpact();
       // ensure the page displays correctly
-      await ourImpactPage.pageDisplays();
+      await ourImpactPage.pageDisplaysSuccessfully();
     });
 
     test('Navigate to "In the News" page', async () => {
@@ -74,7 +74,7 @@ test.describe(
       // navigate to About us menu
       await navBar.gotoInTheNews();
       // ensure the page displays correctly
-      await inTheNewsPage.pageDisplays();
+      await inTheNewsPage.pageDisplaysSuccessfully();
     });
 
     test('Navigate to "Careers" page', async () => {
@@ -85,7 +85,7 @@ test.describe(
       // navigate to About us menu
       await navBar.gotoCareers();
       // ensure the page displays correctly
-      await careersPage.pageDisplays();
+      await careersPage.pageDisplaysSuccessfully();
     });
   }
 );
