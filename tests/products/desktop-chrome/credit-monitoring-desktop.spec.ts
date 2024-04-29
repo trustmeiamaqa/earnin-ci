@@ -1,9 +1,9 @@
 import { test, Page, devices } from '@playwright/test';
-import { CreditMonitoringDesktop } from '../../../src/pages/CreditMonitoring.page';
-import { AboutUsDesktop } from '../../../src/pages/AboutUs.page';
-import { OurImpactDesktop } from '../../../src/pages/OurImpact.page';
-import { InTheNewsDesktop } from '../../../src/pages/InTheNews.page';
-import { CareersDesktop } from '../../../src/pages/Careers.page';
+import { CreditMonitoring } from '../../../src/pages/CreditMonitoring.page';
+import { AboutUs } from '../../../src/pages/AboutUs.page';
+import { OurImpact } from '../../../src/pages/OurImpact.page';
+import { InTheNews } from '../../../src/pages/InTheNews.page';
+import { Careers } from '../../../src/pages/Careers.page';
 import { PDPA } from '../../../src/components/PDPA';
 // desktop nav bar
 import { NavigationBar } from '../../../src/components/NavigationBarDesktop';
@@ -23,7 +23,7 @@ test.describe(
       page = await context.newPage();
 
       // start from credit monitoring page
-      const creditPage = new CreditMonitoringDesktop(page);
+      const creditPage = new CreditMonitoring(page);
       const acceptPDPABtn = new PDPA(page);
       // goto credit monitoring page
       await creditPage.gotoCreditMonitoringPage();
@@ -35,7 +35,7 @@ test.describe(
 
     test('Navigate to "Who we are" page', async () => {
       const navBar = new NavigationBar(page);
-      const aboutUsPage = new AboutUsDesktop(page);
+      const aboutUsPage = new AboutUs(page);
       // is menu visible
       await navBar.navWhoWeAreIsVisible();
       // navigate to "Who We Are" menu
@@ -46,7 +46,7 @@ test.describe(
 
     test('Navigate to "About Us" page', async () => {
       const navBar = new NavigationBar(page);
-      const aboutUsPage = new AboutUsDesktop(page);
+      const aboutUsPage = new AboutUs(page);
       // is menu visible
       await navBar.navAboutUsIsVisible();
       // navigate to About us menu
@@ -57,7 +57,7 @@ test.describe(
 
     test('Navigate to "Our Impact" page', async () => {
       const navBar = new NavigationBar(page);
-      const ourImpactPage = new OurImpactDesktop(page);
+      const ourImpactPage = new OurImpact(page);
       // is menu visible
       await navBar.navOurImpactIsVisible();
       // navigate to About us menu
@@ -68,7 +68,7 @@ test.describe(
 
     test('Navigate to "In the News" page', async () => {
       const navBar = new NavigationBar(page);
-      const inTheNewsPage = new InTheNewsDesktop(page);
+      const inTheNewsPage = new InTheNews(page);
       // is menu visible
       await navBar.navInTheNewsIsVisible();
       // navigate to About us menu
@@ -79,7 +79,7 @@ test.describe(
 
     test('Navigate to "Careers" page', async () => {
       const navBar = new NavigationBar(page);
-      const careersPage = new CareersDesktop(page);
+      const careersPage = new Careers(page);
       // is menu visible
       await navBar.navCareersIsVisible();
       // navigate to About us menu
