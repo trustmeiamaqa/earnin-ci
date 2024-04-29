@@ -12,6 +12,7 @@
     "e2e:mobile": "npx playwright test --grep @mobile tests/products",
     "e2e:screenshots": "npx playwright test --grep @screenshot tests/products",
     "e2e:full": "npx playwright test tests/products",
+    "e2e:ci": "npx playwright test --grep @ci tests/products",
     "e2e:update-screenshot": "npx playwright test --grep @screenshot tests/products --update-snapshots",
     "e2e:report": "npx playwright show-report"
   },
