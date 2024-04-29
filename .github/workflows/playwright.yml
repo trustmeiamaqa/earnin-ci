@@ -33,7 +33,7 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
-      - name: Upload S3
+      - name: Upload S3 ACL
         uses: shallwefootball/s3-upload-action@master
         with:
           aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -42,4 +42,4 @@ jobs:
           source_dir: playwright-report/
 
       - name: Link To Report
-        run: echo "https://s3.amazonaws.com/bucketName/${{steps.S3.outputs.object_key}}/index.html"
+        run: echo "https://s3.amazonaws.com/${{ secrets.AWS_S3_BUCKET}}/${{steps.S3.outputs.object_key}}/index.html"
