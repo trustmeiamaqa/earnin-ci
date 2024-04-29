@@ -5,20 +5,19 @@ import { OurImpact } from '../../../src/pages/OurImpact.page';
 import { InTheNews } from '../../../src/pages/InTheNews.page';
 import { Careers } from '../../../src/pages/Careers.page';
 import { PDPA } from '../../../src/components/PDPA';
-// desktop nav bar
-import { NavigationBar } from '../../../src/components/NavigationBarDesktop';
+import { NavigationBar } from '../../../src/components/NavigationBarMobile';
 
 test.describe(
-  'Ensure navigation menus work on Desktop correctly',
+  'Ensure navigation menus work on Mobile correctly',
   {
-    tag: '@desktop',
+    tag: '@mobile',
   },
   async () => {
     let page: Page;
 
     test.beforeEach(async ({ browser }) => {
       const context = await browser.newContext({
-        ...devices['Desktop Chrome'],
+        ...devices['iPhone 12'],
       });
       page = await context.newPage();
 

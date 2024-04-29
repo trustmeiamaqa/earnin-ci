@@ -7,14 +7,14 @@ import { Careers } from '../../../src/pages/Careers.page';
 import { PDPA } from '../../../src/components/PDPA';
 
 test.describe(
-  'Verify that the marketing page snapshot remains unchanged on Desktop',
+  'Verify that the marketing page snapshot remains unchanged on Mobile',
   { tag: '@snapshot' },
   async () => {
     let page: Page;
 
     test.beforeEach(async ({ browser }) => {
       const context = await browser.newContext({
-        ...devices['Desktop Chrome'],
+        ...devices['iPhone 12'],
       });
       page = await context.newPage();
     });
