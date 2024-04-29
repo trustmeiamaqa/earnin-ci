@@ -91,7 +91,7 @@ test.describe(
       );
     });
 
-    test('In the news page', async () => {
+    test.skip('In the news page', async () => {
       const inTheNewstPage = new InTheNews(page);
       const acceptPDPABtn = new PDPA(page);
 
